@@ -49,7 +49,13 @@ function SkillList() {
         ico={"\u{1F44D}"}
         background="#fc913a"
       />
-      <Skill skill="React" level={80} ico={"\u{1F4AA}"} background="silver" />
+      <Skill
+        skill="React"
+        level={80}
+        emoji=""
+        ico={"\u{1F4AA}"}
+        background="silver"
+      />
       <Skill skill="Python" level={50} ico={"\u{1F44D}"} background="#D7FFF1" />
       <Skill skill="Node.js" level={5} ico={"\u{1F476}"} background="#D09E88" />
       <Skill

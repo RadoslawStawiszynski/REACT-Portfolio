@@ -69,28 +69,9 @@ function Header() {
 }
 
 function Menu() {
-  const pizzas = pizzaData;
-  // const pizzas = [];
-  const numPizzas = pizzas.length;
-  console.log(numPizzas);
-
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      {/* zmieniamy && na ? (1=true, 2=false) */}
-      {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {/*{pizzaData.map((pizza) => (
-          <Pizza name={pizza.name} photoName={pizza.photoName} />
-        ))}*/}
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
-      ) : (
-        <p>We're still working on our menu. Please come back later :)</p>
-      )}
-      {/*
       <Pizza
         name="Pizza Spinaci"
         ingredients="Tomato, mozarella, spinach, and ricotta cheese"
@@ -102,7 +83,7 @@ function Menu() {
         ingredients="Tomato, mozarella, mushrooms, and onion"
         photoName="pizzas/funghi.jpg"
         price={11}
-      />*/}
+      />
     </main>
   );
 }
@@ -110,14 +91,14 @@ function Menu() {
 function Pizza(props) {
   console.log(props);
   return (
-    <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients} </p>
-        <span>{props.pizzaObj.price + 3} euro</span>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients} </p>
+        <span>{props.price + 3}</span>
       </div>
-    </li>
+    </div>
   );
 }
 
@@ -132,24 +113,10 @@ function Footer() {
   // else alert("Sorry we'ar cloesd");
   return (
     <footer clasName="footter">
-      {/* zmieniamy && na ? (1=true, 2=false) */}
-      {isOpen ? (
-        <div className="order">
-          <p>
-            We're currently open until {closeHour}:00! Come visit us or order
-            online.
-          </p>
-          <button className="btn">Order</button>{" "}
-        </div>
-      ) : (
-        <p>
-          We're happy to welcome you between {opneHour}:00 and {closeHour}:00.
-        </p>
-      )}
-      {/*{new Date().toLocaleTimeString()}.We're currently open!*/}
+      {new Date().toLocaleTimeString()}.We're currently opne!
     </footer>
   );
-  //return React.createElement("footer", null, "We're currently open!");
+  //return React.createElement("footer", null, "We're currently opne!");
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
