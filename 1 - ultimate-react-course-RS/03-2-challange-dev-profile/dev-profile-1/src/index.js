@@ -1,21 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./styles.css";
+// import "./styles.css";
 
-const skills = [
-  { skill: "HTML", level: 40, ico: "\u{1F44D}", background: "#FFEEE4" },
-  { skill: "CSS", level: 40, ico: "\u{1F44D}", background: "gold" },
-  { skill: "JavaScript", level: 40, ico: "\u{1F44D}", background: "#fc913a" },
-  { skill: "React", level: 80, ico: "\u{1F4AA}", background: "silver" },
-  { skill: "Python", level: 50, ico: "\u{1F44D}", background: "#D7FFF1" },
-  { skill: "Node.js", level: 5, ico: "\u{1F476}", background: "#D09E88" },
+const skillsData = [
+  {
+    skill: "HTML",
+    level: "intermediate",
+    background: "#FFEEE4",
+  },
+  { skill: "CSS", level: "intermediate", background: "gold" },
+  {
+    skill: "JavaScript",
+    level: "intermediate",
+    background: "#fc913a",
+  },
+  { skill: "React", level: "advanced", background: "silver" },
+  {
+    skill: "Python",
+    level: "intermediate",
+    background: "#D7FFF1",
+  },
+  {
+    skill: "Node.js",
+    level: "beginner",
+    background: "#D09E88",
+  },
   {
     skill: "Git and GitHub",
-    level: 80,
-    ico: "\u{1F4AA}",
+    level: "advanced",
     background: "#8EC0E4",
   },
-  { skill: "Web Design", level: 50, ico: "\u{1F44D}", background: "#F6B352" },
+  {
+    skill: "Web Design",
+    level: "intermediate",
+    background: "#F6B352",
+  },
+];
+
+const icoList = [
+  { level: "advanced", ico: "\u{1F4AA}" },
+  { level: "intermediate", ico: "\u{1F44D}" },
+  { level: "beginner", ico: "\u{1F476}" },
 ];
 
 function App() {
@@ -55,51 +80,36 @@ function Intro() {
 }
 
 function SkillList() {
+  const skills = skillsData;
+  const icos = icoList;
+
   return (
     <div className="skill-list">
-      <Skill skill="HTML" level={40} ico={"\u{1F44D}"} background="#FFEEE4" />
-      <Skill skill="CSS" level={40} ico={"\u{1F44D}"} background="gold" />
-      <Skill
-        skill="JavaScript"
-        level={40}
-        ico={"\u{1F44D}"}
-        background="#fc913a"
-      />
-      <Skill
-        skill="React"
-        level={80}
-        emoji=""
-        ico={"\u{1F4AA}"}
-        background="silver"
-      />
-      <Skill skill="Python" level={50} ico={"\u{1F44D}"} background="#D7FFF1" />
-      <Skill skill="Node.js" level={5} ico={"\u{1F476}"} background="#D09E88" />
-      <Skill
-        skill="Git and GitHub"
-        level={80}
-        ico={"\u{1F4AA}"}
-        background="#8EC0E4"
-      />
-      <Skill
-        skill="Web Design"
-        level={50}
-        ico={"\u{1F44D}"}
-        background="#F6B352"
-      />
+      {skills.map((skill) => {
+        const matchingIco = icos.find((ico) => skill.level === ico.level);
+        console.log(matchingIco);
+        return (
+          <Skill
+            skill={skill.skill}
+            background={skill.background}
+            ico={matchingIco.ico}
+          />
+        );
+      })}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ skill, background, ico }) {
   const style = {
-    backgroundColor: props.background,
+    backgroundColor: background,
   };
+  // console.log(ico);
 
   return (
     <div className="skill" style={style}>
-      <h3>{props.skill}</h3>
-      <p>{props.level}%</p>
-      <span>{props.ico}</span>
+      <h3>{skill}</h3>
+      <p>{ico || "Error!"}</p>
     </div>
   );
 }
