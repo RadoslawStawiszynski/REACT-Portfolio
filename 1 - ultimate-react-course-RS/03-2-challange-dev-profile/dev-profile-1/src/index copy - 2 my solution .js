@@ -37,6 +37,12 @@ const skillsData = [
   },
 ];
 
+const icoList = [
+  { level: "advanced", ico: "\u{1F4AA}" },
+  { level: "intermediate", ico: "\u{1F44D}" },
+  { level: "beginner", ico: "\u{1F476}" },
+];
+
 function App() {
   return (
     <div className="card">
@@ -74,30 +80,36 @@ function Intro() {
 }
 
 function SkillList() {
-  const skill = skillsData;
+  const skills = skillsData;
+  const icos = icoList;
+
   return (
     <div className="skill-list">
-      {skill.map((skill) => (
-        <Skill
-          skill={skill.skill}
-          background={skill.background}
-          level={skill.level}
-        />
-      ))}
+      {skills.map((skill) => {
+        const matchingIco = icos.find((ico) => ico.level === skill.level);
+        console.log(matchingIco);
+        return (
+          <Skill
+            skill={skill.skill}
+            background={skill.background}
+            ico={matchingIco.ico}
+          />
+        );
+      })}
     </div>
   );
 }
 
-function Skill({ skill, background, level }) {
+function Skill({ skill, background, ico }) {
+  const style = {
+    backgroundColor: background,
+  };
   // console.log(ico);
+
   return (
-    <div className="skill" style={{ backgroundColor: background }}>
-      <span>{skill}</span>
-      <span>
-        {level === "beginner" && "\u{1F476}"}
-        {level === "advanced" && "\u{1F4AA}"}
-        {level === "intermediate" && "\u{1F44D}"}
-      </span>
+    <div className="skill" style={style}>
+      <h3>{skill}</h3>
+      <p>{ico || "Error!"}</p>
     </div>
   );
 }
