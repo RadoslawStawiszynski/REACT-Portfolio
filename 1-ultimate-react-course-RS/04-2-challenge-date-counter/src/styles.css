@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  text-align: center;
+}
+.RowButton {
+  display: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.ButtonStep,
+.ButtonCount {
+  background-color: #7950f2;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.ButtonStep:hover,
+.ButtonCount:hover {
+  background-color: #5743e9;
+}
+
+p {
+  font-size: 18px;
+}
+
+span {
+  font-weight: bold;
+}
