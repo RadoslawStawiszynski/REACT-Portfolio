@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//import "./index.css";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -94,7 +94,7 @@ function Menu() {
             {/*{pizzaData.map((pizza) => (
           <Pizza name={pizza.name} photoName={pizza.photoName} />
         ))}*/}
-            {pizzaData.map((pizza) => (
+            {pizzas.map((pizza) => (
               <Pizza pizzaObj={pizza} key={pizza.name} />
             ))}
           </ul>
@@ -124,6 +124,9 @@ function Pizza({ pizzaObj }) {
 
   // if (pizzaObj.soldOut) return <h2> "SOLD OUT!" </h2>;
   // if (pizzaObj.soldOut) return <Header />;
+
+  // Tempalte literal
+  // className="pizza"  === cassName={`pizza`} // `tekst ${function}` JS template literal
   return (
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />

@@ -37,9 +37,9 @@ function Steps() {
 
     // BAD PRACTICE
     // test.name = "Radek";
-    {
-      /* setTest({ name: " Radek" });*/
-    }
+    //{
+    //  /* setTest({ name: " Radek" });*/
+    //}
   }
 
   return (

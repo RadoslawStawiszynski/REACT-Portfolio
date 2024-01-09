@@ -26,6 +26,7 @@ function Form() {
   const [quantity, setQuantity] = useState(1);
 
   function handleSubmit(event) {
+    // strona się nie przeładuje tak jak w normalnym html
     event.preventDefault();
 
     if (!description) return;

@@ -21,7 +21,7 @@ function Avatar() {
         src="rs-foto.JPEG"
         alt="Radosław Stawiszyński"
         style={{ width: "100%", height: "auto" }}
-      />
+        />
     </div>
   );
 }
