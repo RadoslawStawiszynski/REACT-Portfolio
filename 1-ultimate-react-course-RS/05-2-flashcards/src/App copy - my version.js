@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function App() {
   return (
     <div className="App">
-      <FlashCards />
+      <Flashcards />
     </div>
   );
 }
@@ -43,26 +43,33 @@ const questions = [
   },
 ];
 
-function FlashCards() {
-  const [selectedId, setSelectedId] = useState(null);
+function Flashcards() {
+  const [questionID, setQuestionID] = useState(0);
 
-  function handleClick(id) {
-    setSelectedId(id !== selectedId ? id : null);
+  function QuestionCard({ questionObj }) {
+    const handleClick = () => {
+      questionID === questionObj.id
+        ? setQuestionID(0)
+        : setQuestionID(questionObj.id);
+    };
+
+    return (
+      <div
+        className={questionID === questionObj.id ? "selected" : ""}
+        onClick={handleClick}
+      >
+        {questionID === questionObj.id
+          ? questionObj.answer
+          : questionObj.question}
+      </div>
+    );
   }
 
   return (
-    <div className="flashcards">
+    <main className="flashcards">
       {questions.map((question) => (
-        <div
-          key={question.id}
-          onClick={() => handleClick(question.id)}
-          className={question.id === selectedId ? "selected" : ""}
-        >
-          <p>
-            {question.id === selectedId ? question.answer : question.question}
-          </p>
-        </div>
+        <QuestionCard questionObj={question} key={question.id} />
       ))}
-    </div>
+    </main>
   );
 }
